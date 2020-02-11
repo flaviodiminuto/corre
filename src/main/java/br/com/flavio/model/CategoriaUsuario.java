@@ -11,6 +11,13 @@ public class CategoriaUsuario {
     Long id;
     String nome;
 
+    public CategoriaUsuario() {
+    }
+
+    public CategoriaUsuario(String nome) {
+        this.nome = nome;
+    }
+
     public Long getId() {
         return id;
     }
