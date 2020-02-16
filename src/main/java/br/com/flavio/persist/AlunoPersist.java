@@ -15,7 +15,10 @@ public class AlunoPersist {
 
     @Transactional
     public Aluno save(Aluno aluno){
+        try{
             em.persist(aluno);
+        }catch (Exception e){
+        }
         return aluno;
     }
 
