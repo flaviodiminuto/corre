@@ -1,0 +1,3 @@
+br\com\flavio\persist\UsuarioPersist.class
+br\com\flavio\enumeradores\CategoriaUsuario.class
+br\com\flavio\controllers\ControllerUsuario.class

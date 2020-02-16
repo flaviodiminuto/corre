@@ -10,8 +10,20 @@ public class Pessoa {
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     Long id;
     String nome;
-    @Column(name = "data_nascimento", nullable = false)
+    @Column(name = "data_nascimento")
     Date dataNascimento;
+
+    public Pessoa() {
+    }
+
+    public Pessoa(String nome) {
+        this.nome = nome;
+    }
+
+    public Pessoa(String nome, Date dataNascimento) {
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+    }
 
     public Long getId() {
         return id;
