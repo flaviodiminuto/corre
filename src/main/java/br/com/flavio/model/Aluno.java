@@ -1,15 +1,25 @@
 package br.com.flavio.model;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 public class Aluno extends Pessoa {
 
-    Long RA;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private Long RA;
+    boolean deletado;
 
-    @Column(nullable = false)
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Long getRA() {
         return RA;
     }
@@ -18,4 +28,11 @@ public class Aluno extends Pessoa {
         this.RA = RA;
     }
 
+    public boolean isDeletado() {
+        return deletado;
+    }
+
+    public void setDeletado(boolean deletado) {
+        this.deletado = deletado;
+    }
 }

@@ -1,4 +1,4 @@
-package br.com.flavio.persist;
+package br.com.flavio.dao;
 
 import br.com.flavio.model.Aluno;
 

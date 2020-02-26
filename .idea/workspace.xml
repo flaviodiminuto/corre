@@ -2,29 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f1ceec6-98d9-40e6-a8f4-ccf02e752765" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Contato.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/transformer-cache/-dyiS0ppqOBkWkE4T-nukA==" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/transformer-cache/8xAzFaz68qIXB3fveOXLfg==" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/transformer-cache/95TTvmlrrB7ywqxP-izM8w==" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/transformer-cache/DjhgiakczK_XYts_igNzGg==" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/transformer-cache/GGdR-WsBtIZXzHJdP3f1CA==" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/transformer-cache/UViW9ZlhUlVqjJ6gHZ9EGw==" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/transformer-cache/azDyqgqKlmR6zK7Tr_j4cA==" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/transformer-cache/zC9Nvmv7SeDcL3NAn6LzyA==" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/corre.iml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/Repository/SkillRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/controllers/ControllerSkill.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/controllers/Init.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/AreaAtuacao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Skill.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Vaga.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/desenvolvimento/tool/InitSkillsTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/persist/AlunoPersist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/persist/AlunoPersist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/util/ListUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/flavio/CorreAplicacaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/flavio/CorreAplicacaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/business/AlunoBusiness.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/controllers/ControllerAluno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/controllers/ControllerAluno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/controllers/ControllerPessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/controllers/ControllerPessoa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/controllers/ControllerUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/controllers/ControllerUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Aluno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Aluno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Classe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Classe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Contato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Contato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Curso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Curso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Pessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Pessoa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Turno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Turno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/persist/AlunoPersist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/dao/AlunoPersist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/persist/PessoaPersist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/dao/PessoaPersist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/persist/UsuarioPersist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/dao/UsuarioPersist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/search/PessoaSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/search/PessoaSearch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/transformer-cache/QyHPUMy5F0XYL8DNL6cbqg==" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,13 +76,18 @@
       <recent name="br.com.flavio.model" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JAR Application.corre-dev.jar">
     <configuration name="corre-CorreAplicacao-runner.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/target/corre-CorreAplicacao-runner.jar" />
       <method v="2" />
     </configuration>
+    <configuration name="corre-dev.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/corre-dev.jar" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JAR Application.corre-dev.jar" />
         <item itemvalue="JAR Application.corre-CorreAplicacao-runner.jar" />
       </list>
     </recent_temporary>
@@ -114,41 +126,77 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1581890040102" />
-    <state x="574" y="97" key="#com.intellij.ide.util.MemberChooser" timestamp="1581891537155">
+    <state x="574" y="97" key="#com.intellij.ide.util.MemberChooser" timestamp="1582721081612">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="97" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1581891537155" />
-    <state x="499" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1581891141299">
+    <state x="574" y="97" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1582721081612" />
+    <state x="481" y="339" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1582677680701">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1581891141299" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1581891730085">
+    <state x="481" y="339" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1582677680701" />
+    <state x="566" y="273" width="403" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1582677973927">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1581891730085" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1581891730085">
+    <state x="566" y="273" width="403" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1582677973927" />
+    <state x="499" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582721160084">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1581891730085" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1581891730085">
+    <state x="499" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1582721160084" />
+    <state x="424" y="6" key="CommitChangelistDialog2" timestamp="1582723927643">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1581891730085" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1581891730085">
+    <state x="424" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1582723927643" />
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom" timestamp="1582723444218">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1581891730085" />
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582723444218" />
+    <state width="1493" height="261" key="GridCell.Tab.0.center" timestamp="1582723444218">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1582723444218" />
+    <state width="1493" height="261" key="GridCell.Tab.0.left" timestamp="1582723444218">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1582723444218" />
+    <state width="1493" height="261" key="GridCell.Tab.0.right" timestamp="1582723444218">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1582723444218" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1582723444218">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582723444218" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1582723444218">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1582723444218" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1582723444218">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1582723444218" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1582723444218">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1582723444218" />
     <state x="249" y="0" key="SettingsEditor" timestamp="1581384085502">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1581384085502" />
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1581730902616">
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1582717411023">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1581730902616" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1582717411023" />
     <state x="463" y="10" width="609" height="804" key="find.popup" timestamp="1581383923228">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="463" y="10" width="609" height="804" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1581383923228" />
+    <state x="209" y="34" key="new project wizard" timestamp="1582680175770">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="209" y="34" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1582680175770" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1582721789460">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1582721789460" />
   </component>
 </project>

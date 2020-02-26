@@ -3,7 +3,7 @@ package br.com.flavio.controllers;
 import br.com.flavio.enumeradores.CategoriaUsuario;
 import br.com.flavio.model.Pessoa;
 import br.com.flavio.model.Usuario;
-import br.com.flavio.persist.UsuarioPersist;
+import br.com.flavio.dao.UsuarioPersist;
 import br.com.flavio.search.UsuarioSearch;
 
 import javax.inject.Inject;

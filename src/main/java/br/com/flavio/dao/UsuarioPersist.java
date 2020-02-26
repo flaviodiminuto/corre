@@ -1,20 +1,22 @@
-package br.com.flavio.persist;
+package br.com.flavio.dao;
 
-import br.com.flavio.model.Pessoa;
+import br.com.flavio.model.Usuario;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
+import java.util.Date;
 
 @ApplicationScoped
-public class PessoaPersist {
+public class UsuarioPersist {
 
     @Inject
     EntityManager em;
 
     @Transactional
-    public  void persist(Pessoa pessoa){
-        em.persist(pessoa);
+    public void persist(Usuario usuario){
+        usuario.setDataCadastro(new Date());
+        em.persist(usuario);
     }
 }

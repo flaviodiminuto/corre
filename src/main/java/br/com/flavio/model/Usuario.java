@@ -18,9 +18,10 @@ public class Usuario {
     Date dataCadastro;
     @Column(name = "data_atualizacao")
     Date dataAtualizacao;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(referencedColumnName = "id")
     Pessoa pessoa;
+    boolean deletado;
 
     public Long getId() {
         return id;
@@ -76,5 +77,13 @@ public class Usuario {
 
     public void setPessoa(Pessoa pessoa) {
         this.pessoa = pessoa;
+    }
+
+    public boolean isDeletado() {
+        return deletado;
+    }
+
+    public void setDeletado(boolean deletado) {
+        this.deletado = deletado;
     }
 }
