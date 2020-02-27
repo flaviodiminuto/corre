@@ -1,11 +1,12 @@
 package br.com.flavio.Repository;
 
 import br.com.flavio.model.Skill;
-import io.quarkus.hibernate.orm.panache.PanacheRepository;
+import io.quarkus.hibernate.orm.panache.PanacheQuery;
+import io.quarkus.hibernate.orm.panache.PanacheRepositoryBase;
+import io.quarkus.panache.common.Page;
+import io.quarkus.panache.common.Parameters;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
@@ -14,41 +15,44 @@ import java.util.List;
 import java.util.Map;
 
 @ApplicationScoped
-public class SkillRepository implements PanacheRepository<Skill> {
+public class SkillRepository implements PanacheRepositoryBase<Skill,Long> {
 
-    @Inject
-    EntityManager em;
+    private static final Integer limite_por_busca = 50;
 
-    public List<Skill> findByNameSuggestion(String nameSuggestion){
-        //todo -- ajustar as buscas
-        Map<String, Object> params = new HashMap<>();
-        params.put("nameSuggestion", nameSuggestion);
-        return list("nome like \'%:nameSuggestion%\' ", params);
+    @Transactional
+    public Skill create(Skill skill){
+        persistAndFlush(skill);
+        return skill;
     }
 
-    public Skill findByName(String nome){
-        return find("nome",nome).firstResult();
+    public List<Skill> listByNameSuggestion(String suggestion){
+     //PahacheQuery para poder limitar a quantidade retornada na lista
+         PanacheQuery<Skill> query = find("from Skill vo where vo.nome like :nome and vo.deletado = :deletado",
+                Parameters.with("nome",String.format("%%%s%%",suggestion))
+                        .and("deletado",false)
+                        .map()
+        ).page(Page.ofSize(limite_por_busca));
+         return query.list();
     }
 
-//    @Transactional
-//    public List<Skill> salvarListaHibernate(List<Skill> skillList){
-//        skillList.forEach(em::persist);
-//        return skillList;
-//    }
+    public Skill findByName(String suggestion){
+        return find("from Skill vo where vo.descricao like :nome and vo.deletado = :deletado",Parameters.with("nome",String.format("%%%s%%",suggestion)).and("deletado",false).map()).firstResult();
+    }
 
     @Transactional
     public List<Skill> salvarListaPanache(List<Skill> skillList){
         try{
-            skillList.forEach(this::persistAndFlush);
+            persist(skillList);
             return skillList;
-//            skillList.forEach(skill -> {
-//                persist(skill);
-//                persistidos.add(skill);
-//            });
         }catch (PersistenceException pe){
             //todo - - adicionar log
             pe.printStackTrace();
         }
         return new ArrayList<>();
+    }
+
+    @Transactional
+    public int deletarSkill(Long id){
+        return update("deletado = true where id = :id",Parameters.with("id",id).map());
     }
 }

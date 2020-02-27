@@ -1,13 +1,15 @@
 package br.com.flavio.model;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+
 import javax.persistence.*;
 
 @Entity
-public class Skill {
+public class Skill extends PanacheEntityBase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    Long id;
     @Column(nullable = false)
     private String nome;
     private String descricao;
