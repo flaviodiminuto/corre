@@ -7,6 +7,8 @@ import io.quarkus.panache.common.Page;
 import io.quarkus.panache.common.Parameters;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
@@ -16,6 +18,9 @@ import java.util.Map;
 
 @ApplicationScoped
 public class SkillRepository implements PanacheRepositoryBase<Skill,Long> {
+
+    @Inject
+    EntityManager em;
 
     private static final Integer limite_por_busca = 50;
 
@@ -54,5 +59,10 @@ public class SkillRepository implements PanacheRepositoryBase<Skill,Long> {
     @Transactional
     public int deletarSkill(Long id){
         return update("deletado = true where id = :id",Parameters.with("id",id).map());
+    }
+
+    @Transactional
+    public Skill update(Skill skill){
+        return em.merge(skill);
     }
 }
