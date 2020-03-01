@@ -71,10 +71,6 @@ public class ControllerSkill {
     @POST
     public Response create(Skill skill){
         try {
-            skill.setId(null);
-            skill.setDataCriacao(new Date());
-            skill.setDataAtualizacao(null);
-            skill.setDeletado(false);
             return Response.status(Response.Status.OK)
                     .entity(skillRepository.create(skill))
                     .build();
