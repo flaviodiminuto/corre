@@ -1,15 +1,16 @@
-package br.com.flavio.model;
-
+package br.com.flavio.model.simpler;
 
 import javax.persistence.*;
 
 @Entity
-public class Aluno extends Pessoa {
+@Table(name = "skill")
+public class SkillSimpler {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Long RA;
+    @Column(nullable = false)
+    private String nome;
     private boolean deletado;
 
     public Long getId() {
@@ -20,12 +21,12 @@ public class Aluno extends Pessoa {
         this.id = id;
     }
 
-    public Long getRA() {
-        return RA;
+    public String getNome() {
+        return nome;
     }
 
-    public void setRA(Long RA) {
-        this.RA = RA;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public boolean isDeletado() {

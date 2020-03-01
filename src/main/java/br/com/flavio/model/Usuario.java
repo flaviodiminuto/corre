@@ -8,20 +8,20 @@ import java.util.Date;
 @Entity
 public class Usuario {
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    Long id;
-    String login;
-    String senha;
+    private Long id;
+    private String login;
+    private String senha;
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "categoria_usuario")
-    CategoriaUsuario categoriaUsuario;
+    private CategoriaUsuario categoriaUsuario;
     @Column(name = "data_cadastro")
-    Date dataCadastro;
+    private Date dataCadastro;
     @Column(name = "data_atualizacao")
-    Date dataAtualizacao;
+    private Date dataAtualizacao;
     @OneToOne
     @JoinColumn(referencedColumnName = "id")
-    Pessoa pessoa;
-    boolean deletado;
+    private Pessoa pessoa;
+    private boolean deletado;
 
     public Long getId() {
         return id;

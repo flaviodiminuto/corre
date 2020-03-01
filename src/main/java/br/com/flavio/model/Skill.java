@@ -3,17 +3,20 @@ package br.com.flavio.model;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Skill extends PanacheEntityBase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
+    private Long id;
     @Column(nullable = false)
     private String nome;
     private String descricao;
     private boolean deletado;
+    private Date dataCriacao;
+    private Date dataAtualizacao;
 
     public Skill() {}
 
@@ -54,5 +57,21 @@ public class Skill extends PanacheEntityBase {
 
     public void setDeletado(boolean deletado) {
         this.deletado = deletado;
+    }
+
+    public Date getDataCriacao() {
+        return dataCriacao;
+    }
+
+    public void setDataCriacao(Date dataCriacao) {
+        this.dataCriacao = dataCriacao;
+    }
+
+    public Date getDataAtualizacao() {
+        return dataAtualizacao;
+    }
+
+    public void setDataAtualizacao(Date dataAtualizacao) {
+        this.dataAtualizacao = dataAtualizacao;
     }
 }

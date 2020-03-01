@@ -1,6 +1,6 @@
 package desenvolvimento.tool;
 
-import br.com.flavio.Repository.SkillRepository;
+import br.com.flavio.Repository.domain.SkillRepository;
 import br.com.flavio.model.Skill;
 
 import javax.enterprise.context.ApplicationScoped;
