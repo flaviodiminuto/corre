@@ -2,8 +2,9 @@ package br.com.flavio.model;
 
 import br.com.flavio.enumeradores.CategoriaUsuario;
 
+import javax.json.bind.annotation.JsonbDateFormat;
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 public class Usuario {
@@ -15,9 +16,10 @@ public class Usuario {
     @Column(name = "categoria_usuario")
     private CategoriaUsuario categoriaUsuario;
     @Column(name = "data_cadastro")
-    private Date dataCadastro;
+    private LocalDateTime dataCadastro;
     @Column(name = "data_atualizacao")
-    private Date dataAtualizacao;
+    @JsonbDateFormat("yyyy-MM-dd HH:MM:ss")
+    private LocalDateTime dataAtualizacao;
     @OneToOne
     @JoinColumn(referencedColumnName = "id")
     private Pessoa pessoa;
@@ -55,19 +57,19 @@ public class Usuario {
         this.categoriaUsuario = categoriaUsuario;
     }
 
-    public Date getDataCadastro() {
+    public LocalDateTime getDataCadastro() {
         return dataCadastro;
     }
 
-    public void setDataCadastro(Date dataCadastro) {
+    public void setDataCadastro(LocalDateTime dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
 
-    public Date getDataAtualizacao() {
+    public LocalDateTime getDataAtualizacao() {
         return dataAtualizacao;
     }
 
-    public void setDataAtualizacao(Date dataAtualizacao) {
+    public void setDataAtualizacao(LocalDateTime dataAtualizacao) {
         this.dataAtualizacao = dataAtualizacao;
     }
 
