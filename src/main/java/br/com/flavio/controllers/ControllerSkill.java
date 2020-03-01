@@ -13,7 +13,6 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.Date;
 import java.util.List;
 
 @Path("/skills")
@@ -39,7 +38,7 @@ public class ControllerSkill {
     @Path("/{id}")
     public Response findById(@PathParam("id") Long id){
         try {
-            return Response.status(Response.Status.OK)
+            return Response.status(Response.Status.FOUND)
                     .type(MediaType.APPLICATION_JSON)
                     .entity(skillRepository.findById(id))
                     .build();
@@ -73,7 +72,7 @@ public class ControllerSkill {
     @POST
     public Response create(Skill skill){
         try {
-            return Response.status(Response.Status.OK)
+            return Response.status(Response.Status.CREATED)
                     .entity(skillRepository.create(skill))
                     .build();
         }catch (Exception e){
@@ -86,8 +85,19 @@ public class ControllerSkill {
     }
 
     @PUT
-    public Skill atualiza(Skill skill){
-        return skillRepository.update(skill);
+    public Response atualiza(Skill skill){
+        try {
+            skillRepository.update(skill);
+            return Response.status(Response.Status.OK)
+                    .entity(skill)
+                    .build();
+        }catch (Exception e){
+            String mensagem = "Falha ao atualizar skill";
+            log.fatal(mensagem + " ControllerSkill : atualiza");
+            return Response.status(Response.Status.NOT_MODIFIED)
+                    .entity(ControllerResponseUtil.getMessageErrorJSON(mensagem))
+                    .build();
+        }
     }
 
     @DELETE
