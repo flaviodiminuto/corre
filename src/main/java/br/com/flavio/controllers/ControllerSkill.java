@@ -4,6 +4,7 @@ import br.com.flavio.Repository.domain.SkillRepository;
 import br.com.flavio.Repository.domain.simpler.SkillSimplerRepository;
 import br.com.flavio.model.Skill;
 import br.com.flavio.model.simpler.SkillSimpler;
+import br.com.flavio.util.ControllerResponseUtil;
 import desenvolvimento.tool.InitSkillsTable;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -38,29 +39,30 @@ public class ControllerSkill {
     @Path("/{id}")
     public Response findById(@PathParam("id") Long id){
         try {
-//            Long idLong = Long.parseLong(id);
             return Response.status(Response.Status.OK)
                     .type(MediaType.APPLICATION_JSON)
                     .entity(skillRepository.findById(id))
                     .build();
         }catch (NumberFormatException nfe){
-            log.fatal("Falha ao procurar uma Skill",nfe);
-            nfe.printStackTrace();
+            String mensagem = "O [id] informado não é um número";
+            log.fatal(mensagem,nfe);
+            return Response.status(Response.Status.NOT_ACCEPTABLE)
+                    .entity(ControllerResponseUtil.getMessageErrorJSON(mensagem))
+                    .build();
+        }catch (Exception e) {
+            String mensagem = "Não foi possivel criar skill";
+            log.fatal(mensagem);
+            return Response.status(Response.Status.NOT_FOUND)
+                    .type(MediaType.APPLICATION_JSON)
+                    .entity(ControllerResponseUtil.getMessageErrorJSON(mensagem))
+                    .build();
         }
-        return Response.status(Response.Status.NOT_FOUND)
-                .type(MediaType.APPLICATION_JSON)
-                .entity(getMessageErrorJson("Não foi possivel criar skill"))
-                .build();
     }
 
     @GET
     public List<SkillSimpler> list(){
         return simpler.list(" order by nome ");
     }
-
-
-
-//        return skillRepository.findByName(String.valueOf(id));
 
     @POST
     @Path("/init")
@@ -78,7 +80,7 @@ public class ControllerSkill {
             log.fatal("Falha ao persistir skill ",e);
         }
         return Response.status(Response.Status.NOT_ACCEPTABLE)
-                .entity(getMessageErrorJson("Não foi possivel criar Skill"))
+                .entity(ControllerResponseUtil.getMessageErrorJSON("Não foi possivel criar Skill"))
                 .type(MediaType.APPLICATION_JSON)
                 .build();
     }
@@ -95,13 +97,13 @@ public class ControllerSkill {
             Long idLong = Long.parseLong(id);
             skillRepository.deletarSkill(idLong);
             return Response.status(Response.Status.OK)
-                    .entity("{\"resonse-text\":\"Skill deletada\"}")
+                    .entity(ControllerResponseUtil.getMessageResponseTextJSON("Skill deletada"))
                     .build();
         }catch (NumberFormatException nfe){
             String mensagem = "Falha ao deletar, id informado não é um número";
             log.fatal(mensagem,nfe);
            return  Response.status(Response.Status.NOT_ACCEPTABLE)
-                    .entity(getMessageErrorJson(mensagem))
+                    .entity(ControllerResponseUtil.getMessageErrorJSON(mensagem))
                     .type(MediaType.APPLICATION_JSON)
                     .build();
 
@@ -109,13 +111,9 @@ public class ControllerSkill {
             String mensagem = "Falha ao deletar a Skill de Id "+id;
             log.fatal(mensagem,e);
             return  Response.status(Response.Status.NOT_MODIFIED)
-                    .entity(getMessageErrorJson(mensagem))
+                    .entity(ControllerResponseUtil.getMessageErrorJSON(mensagem))
                     .type(MediaType.APPLICATION_JSON)
                     .build();
         }
-    }
-
-    private String getMessageErrorJson(String mensagem){
-        return String.format("{\"mensage-de-erro\": \"%s\"}",mensagem);
     }
 }
