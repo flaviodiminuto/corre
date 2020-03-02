@@ -52,11 +52,6 @@ public class SkillRepository implements PanacheRepositoryBase<Skill,Long> {
     @Transactional
     public Skill update(Skill skill){
         skill.setDataAtualizacao(new Date());
-        try {
-           return em.merge(skill);
-        }catch (PersistenceException pe){
-            log.fatal("Falha ao atualizar Skill",pe);
-        }
-        return null;
+       return em.merge(skill);
     }
 }
