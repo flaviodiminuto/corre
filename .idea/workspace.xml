@@ -1,53 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1f1ceec6-98d9-40e6-a8f4-ccf02e752765" name="Default Changelist" comment="Teste panache-hibernate repository">
+    <list default="true" id="1f1ceec6-98d9-40e6-a8f4-ccf02e752765" name="Default Changelist" comment="[WIP] refatorando usuario controller (find user by id)">
       <change afterPath="$PROJECT_DIR$/diagramas/corre.vpp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/diagramas/corre.vpp.bak_000f" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/Repository/domain/simpler/MateriaRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/controllers/ControllerContato.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/controllers/ControllerMateria.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/controllers/UsuarioController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Sessao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/usuario/UsuarioBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/usuario/UsuarioCadastro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/tabela.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/Repository/domain/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/Repository/domain/UsuarioRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/Repository/domain/simpler/UsuarioSimplerRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/controllers/ControllerSkill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/controllers/ControllerSkill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/controllers/ControllerUsuario.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/dao/AlunoPersist.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/dao/PessoaPersist.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/dao/UsuarioPersist.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Contato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Contato.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Curso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Curso.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Materia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Materia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Pessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Pessoa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Skill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Skill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/usuario/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Vaga.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Vaga.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/simpler/UsuarioSimpler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/cadastro/usuario.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/cadastro/usuario.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/resources/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/resources/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/transformer-cache/-dyiS0ppqOBkWkE4T-nukA==" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/transformer-cache/8xAzFaz68qIXB3fveOXLfg==" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/transformer-cache/95TTvmlrrB7ywqxP-izM8w==" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/transformer-cache/DjhgiakczK_XYts_igNzGg==" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/transformer-cache/GGdR-WsBtIZXzHJdP3f1CA==" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/transformer-cache/T1hiOGfSs1RZXj6bkbZcNg==" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/transformer-cache/UViW9ZlhUlVqjJ6gHZ9EGw==" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/transformer-cache/aVdeVtLdb180AZN783Bvhw==" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/transformer-cache/azDyqgqKlmR6zK7Tr_j4cA==" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/transformer-cache/zC9Nvmv7SeDcL3NAn6LzyA==" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/controllers/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/controllers/UsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Sessao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/flavio/model/Sessao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583119269776</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="[WIP] recriando o controller de usuario e ajustando respostas">
+      <created>1584500022634</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1584500022634</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -234,7 +202,9 @@
     <MESSAGE value="[ajuste] Verbos HTTP" />
     <MESSAGE value="[update] Controller Usuario" />
     <MESSAGE value="[refactoring] Ajuste de todos os retornos para Response" />
-    <option name="LAST_COMMIT_MESSAGE" value="[refactoring] Ajuste de todos os retornos para Response" />
+    <MESSAGE value="[WIP] recriando o controller de usuario e ajustando respostas" />
+    <MESSAGE value="[WIP] refatorando usuario controller (find user by id)" />
+    <option name="LAST_COMMIT_MESSAGE" value="[WIP] refatorando usuario controller (find user by id)" />
   </component>
   <component name="WindowStateProjectService">
     <state x="247" y="144" key="#Docker" timestamp="1584245346857">
@@ -253,10 +223,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1581890040102" />
-    <state x="574" y="97" key="#com.intellij.ide.util.MemberChooser" timestamp="1584497986036">
+    <state x="574" y="97" key="#com.intellij.ide.util.MemberChooser" timestamp="1584501413392">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="97" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.2560.1040@0.0.1536.824" timestamp="1584497986036" />
+    <state x="574" y="97" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.2560.1040@0.0.1536.824" timestamp="1584501413392" />
     <state x="574" y="97" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1584410894742" />
     <state x="481" y="339" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1584400244633">
       <screen x="0" y="0" width="1536" height="824" />
@@ -274,13 +244,15 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1584411166734" />
-    <state x="424" y="6" width="1045" height="811" key="CommitChangelistDialog2" timestamp="1583361791392">
+    <state x="424" y="6" width="1045" height="811" key="CommitChangelistDialog2" timestamp="1584502173470">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="424" y="6" key="CommitChangelistDialog2/0.0.1536.824/1920.0.2560.1040@0.0.1536.824" timestamp="1584502173470" />
     <state x="424" y="6" width="1045" height="811" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583361791392" />
-    <state width="411" height="439" key="DebuggerActiveHint" timestamp="1584412971217">
+    <state width="418" height="439" key="DebuggerActiveHint" timestamp="1584501660677">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="418" height="439" key="DebuggerActiveHint/0.0.1536.824/1920.0.2560.1040@0.0.1536.824" timestamp="1584501660677" />
     <state width="411" height="439" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1584412971217" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1583032143273">
       <screen x="0" y="0" width="1536" height="824" />
@@ -290,37 +262,45 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1584242859549" />
-    <state width="1493" height="247" key="GridCell.Tab.0.bottom" timestamp="1584415144038">
+    <state width="1493" height="247" key="GridCell.Tab.0.bottom" timestamp="1584501867478">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="247" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.2560.1040@0.0.1536.824" timestamp="1584501867478" />
     <state width="1493" height="247" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584415144038" />
-    <state width="1493" height="247" key="GridCell.Tab.0.center" timestamp="1584415144038">
+    <state width="1493" height="247" key="GridCell.Tab.0.center" timestamp="1584501867478">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="247" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.2560.1040@0.0.1536.824" timestamp="1584501867478" />
     <state width="1493" height="247" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584415144038" />
-    <state width="1493" height="247" key="GridCell.Tab.0.left" timestamp="1584415144038">
+    <state width="1493" height="247" key="GridCell.Tab.0.left" timestamp="1584501867477">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="247" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.2560.1040@0.0.1536.824" timestamp="1584501867477" />
     <state width="1493" height="247" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584415144038" />
-    <state width="1493" height="247" key="GridCell.Tab.0.right" timestamp="1584415144038">
+    <state width="1493" height="247" key="GridCell.Tab.0.right" timestamp="1584501867478">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="247" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.2560.1040@0.0.1536.824" timestamp="1584501867478" />
     <state width="1493" height="247" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584415144038" />
-    <state width="1493" height="247" key="GridCell.Tab.1.bottom" timestamp="1584415144039">
+    <state width="1493" height="247" key="GridCell.Tab.1.bottom" timestamp="1584501867478">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="247" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.2560.1040@0.0.1536.824" timestamp="1584501867478" />
     <state width="1493" height="247" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584415144039" />
-    <state width="1493" height="247" key="GridCell.Tab.1.center" timestamp="1584415144039">
+    <state width="1493" height="247" key="GridCell.Tab.1.center" timestamp="1584501867478">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="247" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.2560.1040@0.0.1536.824" timestamp="1584501867478" />
     <state width="1493" height="247" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1584415144039" />
-    <state width="1493" height="247" key="GridCell.Tab.1.left" timestamp="1584415144039">
+    <state width="1493" height="247" key="GridCell.Tab.1.left" timestamp="1584501867478">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="247" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.2560.1040@0.0.1536.824" timestamp="1584501867478" />
     <state width="1493" height="247" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1584415144039" />
-    <state width="1493" height="247" key="GridCell.Tab.1.right" timestamp="1584415144039">
+    <state width="1493" height="247" key="GridCell.Tab.1.right" timestamp="1584501867478">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="247" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.2560.1040@0.0.1536.824" timestamp="1584501867478" />
     <state width="1493" height="247" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1584415144039" />
     <state x="622" y="124" key="RollbackChangesDialog" timestamp="1583032083166">
       <screen x="0" y="0" width="1536" height="824" />
@@ -330,9 +310,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1584390148982" />
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1583119301435">
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1584500034287">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.2560.1040@0.0.1536.824" timestamp="1584500034287" />
     <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1583119301435" />
     <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1584492630340">
       <screen x="0" y="0" width="1536" height="824" />
@@ -347,13 +328,25 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="209" y="34" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1582680175770" />
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1584412038512">
+    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1584501683121">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824/1920.0.2560.1040@0.0.1536.824" timestamp="1584501683121" />
     <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1584412038512" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1584414297371">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1584414297371" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/flavio/model/Sessao.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

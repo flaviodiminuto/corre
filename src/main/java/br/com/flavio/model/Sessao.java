@@ -11,11 +11,24 @@ public class Sessao {
     @JsonbTransient
     Date ultimaAtivadade = new Date();
     Usuario usuario;
-    boolean ativa;
+    boolean ativa=false;
+
+    public Sessao() {
+    }
 
     public Sessao(Optional<Usuario> optionalUsuario){
-        ativa = optionalUsuario.isPresent();
-        usuario = Optional.ofNullable(optionalUsuario.get()).get();
+        if(optionalUsuario.isPresent()) {
+            ativa = optionalUsuario.isPresent();
+            usuario = optionalUsuario.get();
+        }
+    }
+
+    public boolean isAtiva() {
+        return ativa;
+    }
+
+    public void setAtiva(boolean ativa) {
+        this.ativa = ativa;
     }
 
     public Date getInicio() {

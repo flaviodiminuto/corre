@@ -35,7 +35,7 @@ public class UsuarioController {
                 .dataAtualizacao(new Date())
                 .categoriaUsuario(CategoriaUsuario.USUARIO)
                 .build();
-        if(repository.autenticar(usuarioCadastro.getLogin(),usuarioCadastro.getSenha())!= null)
+        if(repository.autenticar(usuarioCadastro.getLogin(),usuarioCadastro.getSenha()).isEmpty())
            return Response.status(Response.Status.NOT_ACCEPTABLE).entity("Usuário já existe").build();
         repository.persist(usuario);
         return Response.status(Response.Status.OK).entity(usuario).build();
@@ -60,33 +60,50 @@ public class UsuarioController {
     //get - by id
     @GET
     @Path("/{id}")
-    public Usuario byId(@PathParam("id") Long id){
-        return repository.findById(id);
+    public Response findById(@PathParam("id") Long id){
+        try {
+            Optional<Usuario> optionalUsuario = repository.findOptionalById(id);
+            if (optionalUsuario.isPresent()) {
+                return Response.status(Response.Status.OK).entity(optionalUsuario.get()).build();
+            } else {
+                Map<String,String> map = new HashMap<>(Map.of("tipo", "info"));
+                map.put("mensagem ", "Usuario não encontrado");
+              return Response.status(Response.Status.NOT_FOUND).entity(map).build();
+            }
+        }catch (Exception e){
+            Map<String,String> map = new HashMap<>(Map.of("tipo", "erro"));
+            map.put("message ", "Falha ao pesquisar usuário");
+            logger.error(map.get("message"));
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(map).build();
+        }
     }
 
     @POST
     @Path("/{login}/{senha}")
     public Response autenticar(@PathParam("login") String login,@PathParam("senha") String senha){
         Response response;
-        String message;
+        String mensagem;
         try {
             Optional<Usuario> optional = repository.autenticar(login, senha);
-            Sessao sessao = new Sessao(optional);
             if (optional.isPresent()) {
+                Sessao sessao = new Sessao(optional);
+                sessao.setAtiva(true);
                 response = Response.status(Response.Status.OK).entity(sessao).build();
-                message = "Acesso autorizado : " + sessao.getUsuario().getLogin();
-                logger.info(message);
+                mensagem = "Acesso autorizado : " + sessao.getUsuario().getLogin();
+                logger.info(mensagem);
             } else {
-                response = Response.status(Response.Status.NOT_FOUND).entity(sessao).build();
-                message = "Acesso Negado : " + login;
-                logger.warn(message);
+                mensagem = "Acesso Negado : " + login;
+                Map<String, String> map = new HashMap<>(Map.of("tipo", "info"));
+                map.put("mensagem",mensagem);
+                response = Response.status(Response.Status.NOT_FOUND).entity(map).build();
+                logger.warn(mensagem);
             }
         }catch (Exception e){
-            message = "Falha durante autenticacao : " + login;
-            Map<String,String> error = new HashMap<>();
-            error.put("error", message );
-            response =  Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(error).build();
-            logger.error(message);
+            mensagem = "Falha durante autenticacao : " + login;
+            Map<String,String> map = new HashMap<>(Map.of("tipo", "erro"));
+            map.put("mensagem", mensagem );
+            response =  Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(map).build();
+            logger.error(mensagem);
         }
         return  response;
     }

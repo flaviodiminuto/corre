@@ -17,6 +17,11 @@ public class UsuarioRepository implements PanacheRepositoryBase<Usuario,Long> {
     @Inject
     EntityManager em;
 
+    public Optional<Usuario> findOptionalById(Long id) {
+        Usuario usuario = findById(id);
+        return Optional.ofNullable(usuario);
+    }
+
     //update
     @Transactional
     public void update(Usuario usuario){
@@ -32,6 +37,6 @@ public class UsuarioRepository implements PanacheRepositoryBase<Usuario,Long> {
 
     public Optional<Usuario> autenticar(String login, String senha){
         Usuario usuario = find("login=:login and senha=:senha ",Parameters.with("login", login).and("senha",senha).map()).firstResult();
-        return Optional.of(usuario);
+        return Optional.ofNullable(usuario);
     }
 }
