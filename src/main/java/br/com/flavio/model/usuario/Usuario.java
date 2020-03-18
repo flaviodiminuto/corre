@@ -1,6 +1,7 @@
-package br.com.flavio.model;
+package br.com.flavio.model.usuario;
 
 import br.com.flavio.enumeradores.CategoriaUsuario;
+import br.com.flavio.model.Pessoa;
 
 import javax.json.bind.annotation.JsonbDateFormat;
 import javax.persistence.*;
@@ -25,6 +26,19 @@ public class Usuario {
     @JoinColumn(referencedColumnName = "id")
     private Pessoa pessoa;
     private boolean deletado;
+
+    public Usuario(){}
+
+    public Usuario(Long id, String login, String senha, CategoriaUsuario categoriaUsuario, Date dataCadastro, Date dataAtualizacao, Pessoa pessoa, boolean deletado) {
+        this.id = id;
+        this.login = login;
+        this.senha = senha;
+        this.categoriaUsuario = categoriaUsuario;
+        this.dataCadastro = dataCadastro;
+        this.dataAtualizacao = dataAtualizacao;
+        this.pessoa = pessoa;
+        this.deletado = deletado;
+    }
 
     public Long getId() {
         return id;

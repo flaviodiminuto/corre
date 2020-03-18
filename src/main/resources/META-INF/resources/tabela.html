@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabela</title>
+    <link rel="stylesheet" type="text/css" href="/style/Semantic-UI-CSS-master/semantic.min.css">
+    <script src="/Semantic-UI-CSS-master/semantic.min.js"></script>
+    <script src="/script/jquery-3.4.1.js"></script>
+<style>
+thead{
+  background-color: white;
+}
+
+.accordion{
+  transition: opacity 1s;
+}
+
+
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="row-lg-12">
+        <h3>Table Accordion</h3>
+        <div id="log" class="bg-danger"></div>
+        <table class="table table-bordered table-hover table-responsive list ui celled table">
+            <thead>
+            <tr>
+                <th>thead data1</th>
+                <th>thead data1</th>
+            </tr>
+            </thead>
+            <tbody class="">
+            <tr class="accordion" id="p1">
+                <td class="">accordion header</td>
+                <td class="">accordion header</td>
+            </tr>
+            <tr class="">
+                <td class="">data</td>
+                <td class="">data</td>
+            </tr>
+            <tr class="">
+                <td class="">data</td>
+                <td class="">data</td>
+            </tr>
+            <tr class="">
+                <td class="">data</td>
+                <td class="">data</td>
+            </tr>
+            <tr class="accordion" id="p2">
+                <td class="">accordion header</td>
+                <td class="">accordion header</td>
+            </tr>
+            <tr class="">
+                <td class="">data</td>
+                <td class="">data</td>
+            </tr>
+            <tr class="">
+                <td class="">data</td>
+                <td class="">data</td>
+            </tr>
+            <tr class="">
+                <td class="">data</td>
+                <td class="">data</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+
+//	Table Accordion!
+$(function() {
+	var $list = $('.list');
+	$list.find("tbody>tr").not('.accordion').hide();
+	$list.find("#p1.accordion").click(function(){
+		$(this).siblings().fadeToggle(500);
+		if ($(this).siblings().hasClass('accordion-expanded')) {
+			$(this).siblings().removeClass('accordion-expanded');
+			$(this).siblings().removeClass('active');
+			$(this).siblings().fadeOut(500);
+		}
+		else{
+			$(this).siblings().addClass('accordion-expanded');
+			$(this).siblings().addClass('active');
+			$(this).siblings().fadeTo("fast", 1);
+		};
+		if ($list.find('.accordion-expanded').length == 0) {
+			$list.find('.accordion').css("opacity", 1);
+		}
+		else{
+			$list.find('.accordion').not('.accordion-expanded').css("opacity", 0.33);
+		};
+	});
+});
+
+//	Float that shit
+jQuery("table.table").floatThead();
+jQuery('.floatThead-wrapper').style('top', '50px')
+
+
+$('table').floatThead({
+  useAbsolutePositioning: false,
+  scrollingTop: 50,
+
+});
+</script>
+</body>
+</html>

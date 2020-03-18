@@ -1,8 +1,7 @@
 package br.com.flavio.model;
 
-
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -11,14 +10,14 @@ public class Pessoa {
     private Long id;
     private String nome;
     @Column(name = "data_nascimento")
-    private LocalDateTime dataNascimento;
+    private Date dataNascimento;
     private boolean deletado;
 
     public Pessoa() {  }
     public Pessoa(String nome) {
         this.nome = nome;
     }
-    public Pessoa(String nome, LocalDateTime dataNascimento) {
+    public Pessoa(String nome, Date dataNascimento) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
     }
@@ -39,11 +38,11 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public LocalDateTime getDataNascimento() {
+    public Date getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(LocalDateTime dataNascimento) {
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 

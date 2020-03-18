@@ -69,7 +69,7 @@ public class ControllerSkill {
     @GET
     public Response list(){
         try{
-            return Response.status(Response.Status.FOUND)
+            return Response.status(Response.Status.OK)
                     .entity(simpler.list("deletado = false order by nome"))
                     .build();
         }catch (Exception e){

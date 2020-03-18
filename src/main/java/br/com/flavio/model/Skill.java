@@ -2,6 +2,7 @@ package br.com.flavio.model;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.util.Date;
 
@@ -14,8 +15,11 @@ public class Skill extends PanacheEntityBase {
     @Column(nullable = false)
     private String nome;
     private String descricao;
+    @JsonbTransient
     private boolean deletado;
+    @JsonbTransient
     private Date dataCriacao;
+    @JsonbTransient
     private Date dataAtualizacao;
 
     public Skill() {}

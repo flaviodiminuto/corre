@@ -1,5 +1,7 @@
 package br.com.flavio.model;
 
+import br.com.flavio.model.usuario.Usuario;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 import java.util.Set;
