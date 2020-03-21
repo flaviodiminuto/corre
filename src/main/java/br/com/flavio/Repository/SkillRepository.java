@@ -1,8 +1,6 @@
-package br.com.flavio.Repository.domain;
+package br.com.flavio.repository;
 
-import br.com.flavio.Repository.domain.simpler.SkillSimplerRepository;
 import br.com.flavio.model.Skill;
-import br.com.flavio.model.simpler.SkillSimpler;
 import io.quarkus.hibernate.orm.panache.PanacheRepositoryBase;
 import io.quarkus.panache.common.Parameters;
 import org.apache.commons.logging.Log;
@@ -21,7 +19,7 @@ import java.util.List;
 public class SkillRepository implements PanacheRepositoryBase<Skill,Long> {
     @Inject
     EntityManager em;
-    private Log log = LogFactory.getLog(SkillSimpler.class);
+    private final Log log = LogFactory.getLog(SkillRepository.class);
 
     @Transactional
     public Skill create(Skill skill){

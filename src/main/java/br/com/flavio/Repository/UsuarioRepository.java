@@ -1,6 +1,7 @@
-package br.com.flavio.Repository.domain;
+package br.com.flavio.repository;
 
 import br.com.flavio.model.usuario.Usuario;
+import br.com.flavio.model.usuario.UsuarioAlteracao;
 import io.quarkus.hibernate.orm.panache.PanacheRepositoryBase;
 import io.quarkus.panache.common.Parameters;
 
@@ -23,10 +24,37 @@ public class UsuarioRepository implements PanacheRepositoryBase<Usuario,Long> {
     }
 
     //update
+
+    /**
+     *
+     * @param usuarioAlteracao
+     * @return
+     * 0 - usuario inalterado <br/>
+     * 1 - usuario atualizado <br/>
+     * 2 - usuario inexistente <br/>
+     * 3 - falha ao atualizar <br/>
+     */
+    @SuppressWarnings("JavaDoc")
     @Transactional
-    public void update(Usuario usuario){
-        if(findById(usuario.getId())!=null)
-            em.merge(usuario);
+    public int update(UsuarioAlteracao usuarioAlteracao){
+        try {
+            Usuario usuario = findById(usuarioAlteracao.getId());
+            if (usuario != null) {
+                if(usuarioAlteracao.getSenha().equals(usuario.getSenha()))
+                    return 0;
+                else {
+                    usuario.setSenha(usuarioAlteracao.getSenha());
+                    usuario.setCategoriaUsuario(usuarioAlteracao.getCategoriaUsuario());
+                    usuario.setDataAtualizacao(new Date());
+                    em.merge(usuario);
+                    return 1;
+                }
+            }
+            return 2;
+        }catch (Exception e){
+            e.printStackTrace();
+            return 3;
+        }
     }
 
     //delete lógico

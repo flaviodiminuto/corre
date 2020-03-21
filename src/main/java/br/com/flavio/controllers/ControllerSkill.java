@@ -1,7 +1,6 @@
 package br.com.flavio.controllers;
 
-import br.com.flavio.Repository.domain.SkillRepository;
-import br.com.flavio.Repository.domain.simpler.SkillSimplerRepository;
+import br.com.flavio.repository.SkillRepository;
 import br.com.flavio.model.Skill;
 import br.com.flavio.util.ControllerResponseUtil;
 import desenvolvimento.tool.InitSkillsTable;
@@ -18,29 +17,17 @@ import javax.ws.rs.core.Response;
 @Produces(MediaType.APPLICATION_JSON)
 public class ControllerSkill {
 
-    private Log log = LogFactory.getLog(ControllerSkill.class);
+    private final Log log = LogFactory.getLog(ControllerSkill.class);
 
     @Inject
     SkillRepository repository;
     @Inject
     InitSkillsTable initSkillsTable;
-    @Inject
-    SkillSimplerRepository simpler;
 
     @GET
     @Path("/suggestion/{nome}")
     public Response list(@PathParam("nome") String nome){
-        try{
-            return Response.status(Response.Status.FOUND)
-                    .entity(simpler.listByNameSuggestion(nome))
-                    .build();
-        }catch (Exception e){
-            String mensagem = "Falha ao listar Skills";
-            log.fatal(mensagem + "  - suggestion Nome : List");
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-                    .entity(ControllerResponseUtil.getMessageErrorJSON(mensagem))
-                    .build();
-        }
+        return null;
     }
     @GET
     @Path("/{id}")
@@ -68,17 +55,7 @@ public class ControllerSkill {
 
     @GET
     public Response list(){
-        try{
-            return Response.status(Response.Status.OK)
-                    .entity(simpler.list("deletado = false order by nome"))
-                    .build();
-        }catch (Exception e){
-            String mensagem = "Falha ao listar Skills";
-            log.fatal(mensagem + " : List");
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-                    .entity(ControllerResponseUtil.getMessageErrorJSON(mensagem))
-                    .build();
-        }
+        return null;
     }
 
     @POST

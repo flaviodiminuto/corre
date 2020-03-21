@@ -1,6 +1,6 @@
 package desenvolvimento.tool;
 
-import br.com.flavio.Repository.domain.SkillRepository;
+import br.com.flavio.repository.SkillRepository;
 import br.com.flavio.model.Skill;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -24,7 +24,6 @@ public class InitSkillsTable  {
         skillList.add(new Skill(null,"Kubernetes", "Orquestrador de containeres de aplicação", false));
 
         return skillRepository.salvarListaPanache(skillList);
-        //skillRepository.salvarListaHibernate(skillList);
     }
 
 }
