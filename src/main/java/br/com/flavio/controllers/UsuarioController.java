@@ -1,5 +1,6 @@
 package br.com.flavio.controllers;
 
+import br.com.flavio.model.Sessao;
 import br.com.flavio.model.usuario.UsuarioAlteracao;
 import br.com.flavio.repository.UsuarioRepository;
 import br.com.flavio.enumeradores.CategoriaUsuario;
@@ -46,19 +47,14 @@ public class UsuarioController {
     //put
     @PUT
     public Response put(UsuarioAlteracao usuario) {
-        /* 0 - usuario inalterado
-          1 - usuario atualizado
-          2 - usuario inexistente
-          3 ou mais - falha ao atualizar
-         */
         switch (repository.update(usuario)) {
-            case 0:
+            case 0:// usuario inalterado
                 return Response.status(Response.Status.NOT_MODIFIED).build();
-            case 1:
+            case 1:// usuario atualizado
                 return Response.status(Response.Status.OK).entity(usuario).build();
-            case 2:
+            case 2:// usuario inexistente
                 return Response.status(Response.Status.NOT_FOUND).build();
-            default:
+            default:// falha ao atualizar
                 Map<String,String> map = ControllerResponseUtil.mapResponse("erro", "falha ao atualizar usuário");
                 return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(map).build();
         }
@@ -98,31 +94,30 @@ public class UsuarioController {
     @POST
     @Path("/{login}/{senha}")
     public Response autenticar(@PathParam("login") String login,@PathParam("senha") String senha){
-//        Response response;
-//        String mensagem;
-//        try {
-//            Optional<Usuario> optional = repository.autenticar(login, senha);
-//            if (optional.isPresent()) {
-//                Sessao sessao = new Sessao(optional.get());
-//                sessao.setAtiva(true);
-//                response = Response.status(Response.Status.OK).entity(sessao).build();
-//                mensagem = "Acesso autorizado : " + sessao.getUsuario().getLogin();
-//                logger.info(mensagem);
-//            } else {
-//                mensagem = "Acesso Negado : " + login;
-//                Map<String, String> map = new HashMap<>(Map.of("tipo", "info"));
-//                map.put("mensagem",mensagem);
-//                response = Response.status(Response.Status.NOT_FOUND).entity(map).build();
-//                logger.warn(mensagem);
-//            }
-//        }catch (Exception e){
-//            mensagem = "Falha durante autenticacao : " + login;
-//            Map<String,String> map = new HashMap<>(Map.of("tipo", "erro"));
-//            map.put("mensagem", mensagem );
-//            response =  Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(map).build();
-//            logger.error(mensagem);
-//        }
-//        return  response;
-        return null;
+        Response response;
+        String mensagem;
+        try {
+            Optional<Usuario> optional = repository.autenticar(login, senha);
+            if (optional.isPresent()) {
+                Sessao sessao = new Sessao(optional);
+                sessao.setAtiva(true);
+                response = Response.status(Response.Status.OK).entity(sessao).build();
+                mensagem = "Acesso autorizado : " + sessao.getUsuario().getLogin();
+                logger.info(mensagem);
+            } else {
+                mensagem = "Acesso Negado : " + login;
+                Map<String, String> map = new HashMap<>(Map.of("tipo", "info"));
+                map.put("mensagem",mensagem);
+                response = Response.status(Response.Status.NOT_FOUND).entity(map).build();
+                logger.warn(mensagem);
+            }
+        }catch (Exception e){
+            mensagem = "Falha durante autenticacao : " + login;
+            Map<String,String> map = new HashMap<>(Map.of("tipo", "erro"));
+            map.put("mensagem", mensagem );
+            response =  Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(map).build();
+            logger.error(mensagem);
+        }
+        return  response;
     }
 }
