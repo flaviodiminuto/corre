@@ -38,7 +38,7 @@ public class UsuarioController {
                 .dataAtualizacao(new Date())
                 .categoriaUsuario(CategoriaUsuario.USUARIO)
                 .build();
-        if(repository.autenticar(usuarioCadastro.getLogin(),usuarioCadastro.getSenha()).isEmpty())
+        if(repository.autenticar(usuarioCadastro.getLogin(),usuarioCadastro.getSenha()).isPresent())
            return Response.status(Response.Status.NOT_ACCEPTABLE).entity("Usuário já existe").build();
         repository.persist(usuario);
         return Response.status(Response.Status.OK).entity(usuario).build();
