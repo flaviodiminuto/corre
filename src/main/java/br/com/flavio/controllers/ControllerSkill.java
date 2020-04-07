@@ -112,7 +112,7 @@ public class ControllerSkill {
             Long idLong = Long.parseLong(id);
             repository.deletarSkill(idLong);
             return Response.status(Response.Status.OK)
-                    .entity(ControllerResponseUtil.getMessageResponseTextJSON("Skill deletada"))
+                    .entity(ControllerResponseUtil.getMessageInfoTextJSON("Skill deletada"))
                     .build();
         }catch (NumberFormatException nfe){
             String mensagem = "Falha ao deletar, id informado não é um número";

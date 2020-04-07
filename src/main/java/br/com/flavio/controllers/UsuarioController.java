@@ -2,7 +2,7 @@ package br.com.flavio.controllers;
 
 import br.com.flavio.model.Sessao;
 import br.com.flavio.model.usuario.UsuarioAlteracao;
-import br.com.flavio.repository.UsuarioRepository;
+import br.com.flavio.model.usuario.UsuarioRepository;
 import br.com.flavio.enumeradores.CategoriaUsuario;
 import br.com.flavio.model.usuario.Usuario;
 import br.com.flavio.model.usuario.UsuarioBuilder;
@@ -31,6 +31,7 @@ public class UsuarioController {
     @POST
     @Transactional
     public Response post(UsuarioCadastro usuarioCadastro){
+        String mensagem;
         Usuario usuario = new UsuarioBuilder()
                 .login(usuarioCadastro.getLogin())
                 .senha(usuarioCadastro.getSenha())
@@ -38,56 +39,93 @@ public class UsuarioController {
                 .dataAtualizacao(new Date())
                 .categoriaUsuario(CategoriaUsuario.USUARIO)
                 .build();
-        if(repository.autenticar(usuarioCadastro.getLogin(),usuarioCadastro.getSenha()).isPresent())
-           return Response.status(Response.Status.NOT_ACCEPTABLE).entity("Usuário já existe").build();
+        if(repository.autenticar(usuarioCadastro.getLogin(),usuarioCadastro.getSenha()).isPresent()) {
+            mensagem = String.format("Tentativa negada de cadastro repetido : login = %s",usuario.getLogin());
+            logger.info(mensagem);
+            return Response.status(Response.Status.NOT_ACCEPTABLE).entity(ControllerResponseUtil.getMessageInfoTextJSON("Usuário já existe")).build();
+        }
         repository.persist(usuario);
+        mensagem  = String.format("Novo Usuario : login = %s, id = %d",usuario.getLogin(),usuario.getId());
+        logger.info(mensagem);
         return Response.status(Response.Status.OK).entity(usuario).build();
     }
 
     //put
     @PUT
     public Response put(UsuarioAlteracao usuario) {
+        String mensagem;
+        Response response;
         switch (repository.update(usuario)) {
             case 0:// usuario inalterado
-                return Response.status(Response.Status.NOT_MODIFIED).build();
+                mensagem = ControllerResponseUtil.getMessageInfoTextJSON("usuario não foi modificado");
+                response =  Response.status(Response.Status.NOT_MODIFIED).entity(mensagem).build();
+                break;
             case 1:// usuario atualizado
-                return Response.status(Response.Status.OK).entity(usuario).build();
+                mensagem = String.format("Usuario atualizado - Id = %d", usuario.getId());
+                logger.info(mensagem);
+                response =  Response.status(Response.Status.OK).entity(usuario).build();
+                break;
             case 2:// usuario inexistente
-                return Response.status(Response.Status.NOT_FOUND).build();
+                mensagem = ControllerResponseUtil.getMessageInfoTextJSON("Usuáiro não encontrado");
+                response =  Response.status(Response.Status.NOT_FOUND).entity(mensagem).build();
+                break;
             default:// falha ao atualizar
-                Map<String,String> map = ControllerResponseUtil.mapResponse("erro", "falha ao atualizar usuário");
-                return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(map).build();
+                mensagem = ControllerResponseUtil.getMessageErrorJSON("Falha ao atualizar usuário");
+                response =  Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(mensagem).build();
+                break;
         }
+        return response;
     }
 
     //delete - by Id
     @DELETE
-    public void delete(Usuario usuario){
-        repository.delete(usuario.getId());
+    public Response delete(UsuarioCadastro user){
+        String mensagem;
+        Optional<Usuario> optionalUsuario = repository.autenticar(user.getLogin(),user.getSenha());
+        if(optionalUsuario.isPresent()) {
+            // falha ao atualizar
+            if (repository.delete(optionalUsuario.get().getId()) == 1) {// deletado alterado para TRUE
+                mensagem = ControllerResponseUtil.getMessageInfoTextJSON("falha ao deletar usuário");
+                logger.info(mensagem);
+                return Response.status(Response.Status.OK).entity(mensagem).build();
+            }
+            mensagem = ControllerResponseUtil.getMessageErrorJSON("falha ao deletar usuário");
+            logger.error(mensagem);
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(mensagem).build();
+        } else {
+            mensagem = ControllerResponseUtil.getMessageInfoTextJSON("Usuario não encontrado");
+            logger.info(mensagem);
+            return Response.status(Response.Status.NOT_FOUND).entity(mensagem).build();
+        }
     }
+
     //get - list
     @GET
     public List<Usuario> list(){
+        String mensagem = ControllerResponseUtil.getMessageInfoTextJSON("Listando todos Usuários");
+        logger.info(mensagem);
         return repository.listAll(Sort.by("id"));
     }
+
     //get - by id
     @GET
     @Path("/{id}")
     public Response findById(@PathParam("id") Long id){
+        String message;
         try {
             Optional<Usuario> optionalUsuario = repository.findOptionalById(id);
             if (optionalUsuario.isPresent()) {
+                logger.info(String.format("Usuario pesquisado - Id = %d (fornecido)",optionalUsuario.get().getId()));
                 return Response.status(Response.Status.OK).entity(optionalUsuario.get()).build();
             } else {
-                Map<String,String> map = new HashMap<>(Map.of("tipo", "info"));
-                map.put("mensagem ", "Usuario não encontrado");
-              return Response.status(Response.Status.NOT_FOUND).entity(map).build();
+                message = ControllerResponseUtil.getMessageInfoTextJSON("Usuario não encontrado");
+                logger.info(message);
+                return Response.status(Response.Status.NOT_FOUND).entity(message).build();
             }
         }catch (Exception e){
-            Map<String,String> map = new HashMap<>(Map.of("tipo", "erro"));
-            map.put("message ", "Falha ao pesquisar usuário");
-            logger.error(map.get("message"));
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(map).build();
+            message = ControllerResponseUtil.getMessageErrorJSON("Falha ao pesquisar usuário");
+            logger.error(message);
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(message).build();
         }
     }
 
@@ -102,22 +140,16 @@ public class UsuarioController {
                 Sessao sessao = new Sessao(optional);
                 sessao.setAtiva(true);
                 response = Response.status(Response.Status.OK).entity(sessao).build();
-                mensagem = "Acesso autorizado : " + sessao.getUsuario().getLogin();
-                logger.info(mensagem);
+                mensagem = ControllerResponseUtil.getMessageInfoTextJSON("Acesso autorizado : " + sessao.getUsuario().getLogin());
             } else {
-                mensagem = "Acesso Negado : " + login;
-                Map<String, String> map = new HashMap<>(Map.of("tipo", "info"));
-                map.put("mensagem",mensagem);
-                response = Response.status(Response.Status.NOT_FOUND).entity(map).build();
-                logger.warn(mensagem);
+                mensagem = ControllerResponseUtil.getMessageInfoTextJSON("Acesso Negado : " + login);
+                response = Response.status(Response.Status.NOT_FOUND).entity(mensagem).build();
             }
         }catch (Exception e){
-            mensagem = "Falha durante autenticacao : " + login;
-            Map<String,String> map = new HashMap<>(Map.of("tipo", "erro"));
-            map.put("mensagem", mensagem );
-            response =  Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(map).build();
-            logger.error(mensagem);
+            mensagem = ControllerResponseUtil.getMessageErrorJSON("Falha durante autenticacao : " + login);
+            response =  Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(mensagem).build();
         }
+        logger.error(mensagem);
         return  response;
     }
 }

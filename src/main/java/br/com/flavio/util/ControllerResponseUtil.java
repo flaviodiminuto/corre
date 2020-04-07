@@ -5,21 +5,14 @@ import java.util.Map;
 
 public class ControllerResponseUtil {
     public static String getMessageErrorJSON(String mensagem){
-        return getJSON("mensage-de-erro",mensagem);
+        return getMessageJson("erro",mensagem);
     }
 
-    public static String getMessageResponseTextJSON(String mensagem){
-        return getJSON("resonse-text",mensagem);
+    public static String getMessageInfoTextJSON(String mensagem){
+        return getMessageJson("info",mensagem);
     }
 
-    private static String getJSON(String key, String value){
-        return String.format("{\"%s\": \"%s\"}",key, value);
-    }
-
-    public static Map<String,String> mapResponse(String tipo, String mensagem){
-        Map<String, String> map = new HashMap<>();
-        map.put("tipo", tipo);
-        map.put("mensagem",mensagem);
-        return map;
+    private static String getMessageJson(String key, String value){
+        return String.format("{\"tipo\": \"%s\",\n\"mensagem\": \"%s\"}",key, value);
     }
 }

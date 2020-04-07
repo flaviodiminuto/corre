@@ -6,6 +6,7 @@ public class UsuarioAlteracao {
     private Long id;
     private String senha;
     private CategoriaUsuario categoriaUsuario = CategoriaUsuario.USUARIO;
+    private boolean deletado;
 
     public Long getId() {
         return id;
@@ -29,5 +30,13 @@ public class UsuarioAlteracao {
 
     public void setCategoriaUsuario(CategoriaUsuario categoriaUsuario) {
         this.categoriaUsuario = categoriaUsuario;
+    }
+
+    public boolean isDeletado() {
+        return deletado;
+    }
+
+    public void setDeletado(boolean deletado) {
+        this.deletado = deletado;
     }
 }
