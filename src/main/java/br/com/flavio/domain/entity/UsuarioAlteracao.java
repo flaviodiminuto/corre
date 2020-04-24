@@ -1,4 +1,4 @@
-package br.com.flavio.model.usuario;
+package br.com.flavio.domain.entity;
 
 import br.com.flavio.enumeradores.CategoriaUsuario;
 

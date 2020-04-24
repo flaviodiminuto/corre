@@ -1,4 +1,4 @@
-package br.com.flavio.model.usuario;
+package br.com.flavio.model;
 
 import br.com.flavio.enumeradores.CategoriaUsuario;
 import br.com.flavio.model.Pessoa;

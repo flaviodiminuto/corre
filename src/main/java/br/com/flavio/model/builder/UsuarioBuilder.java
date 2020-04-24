@@ -1,12 +1,13 @@
-package br.com.flavio.model.usuario;
+package br.com.flavio.model.builder;
 
 import br.com.flavio.enumeradores.CategoriaUsuario;
 import br.com.flavio.model.Pessoa;
+import br.com.flavio.model.Usuario;
 
 import java.util.Date;
 
 public class UsuarioBuilder {
-    Long id;
+    static Long id;
     String login;
     String senha;
     CategoriaUsuario categoriaUsuario;

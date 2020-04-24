@@ -1,12 +1,12 @@
 package br.com.flavio.controllers;
 
 import br.com.flavio.model.Sessao;
-import br.com.flavio.model.usuario.UsuarioAlteracao;
-import br.com.flavio.model.usuario.UsuarioRepository;
+import br.com.flavio.domain.entity.UsuarioAlteracao;
 import br.com.flavio.enumeradores.CategoriaUsuario;
-import br.com.flavio.model.usuario.Usuario;
-import br.com.flavio.model.usuario.UsuarioBuilder;
-import br.com.flavio.model.usuario.UsuarioCadastro;
+import br.com.flavio.model.Usuario;
+import br.com.flavio.model.builder.UsuarioBuilder;
+import br.com.flavio.domain.entity.UsuarioCadastro;
+import br.com.flavio.repository.UsuarioRepository;
 import br.com.flavio.util.ControllerResponseUtil;
 import io.quarkus.panache.common.Sort;
 import org.slf4j.Logger;
@@ -23,6 +23,7 @@ import java.util.*;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class UsuarioController {
+
     @Inject
     UsuarioRepository repository;
 
